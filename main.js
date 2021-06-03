@@ -16,7 +16,7 @@ function changeYorCity() {
             // Вывод температуры
             document.querySelector('.weather__temp').textContent = res.data.main.temp + "°C"
             //Вывод "Ощущается как"
-            document.querySelector('.weather__temp-feels_like').textContent = "Ощущается как:" + res.data.main.feels_like
+            document.querySelector('.weather__temp-feels_like').textContent = "Ощущается как:" +" " + res.data.main.feels_like + "°C"
             // Вывод влажности
             document.querySelector('.weather__humidity').textContent = "Влажность:" +" " + res.data.main.humidity + " %"
             // Вывод скорости ветра
