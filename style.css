@@ -1,35 +1,39 @@
-h1,h2,h3,h4,p {
-    color: aliceblue;
+h1,
+h2,
+h3,
+h4,
+p {
+  color: aliceblue;
 }
 
 p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .html__bcg {
-    background-image: url(././images/000.jpg);
-    /* background-size: cover;
+  background-image: url(././images/000.jpg);
+  /* background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover; */
 }
 
 .main {
-    text-align: center;
+  text-align: center;
 }
 
 .middle__img {
-    width: 250px;
-    height: auto;
-    animation: spin 45s linear 0s infinite;
+  width: 250px;
+  height: auto;
+  animation: spin 45s linear 0s infinite;
 }
 
 .weather__temp {
- font-size: 45px;
+  font-size: 45px;
 }
 
 .weather__clouds {
-    margin: 0;
+  margin: 0;
 }
 
 .weather__city {
@@ -37,23 +41,62 @@ p {
 }
 
 .weather__temp-wrap {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .weather__temp_cels {
-    font-size: 45px;
-    padding: 0;
-    margin: 0;
+  font-size: 45px;
+  padding: 0;
+  margin: 0;
 }
 
 .currentDate {
-    font-size: 25px;
-    margin-top: 15px;
-    margin-bottom: 0px;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 
 @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgba(163, 40, 40, 0.452);
+  text-align: center;
+}
+
+button {
+  /* remove default behavior */
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px;
+  border: none;
+  background-color: #3878eea8;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0px;
+  max-width: 50%;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.footer__location {
+  display: flex;
+  justify-content: space-between;
+  max-height: 50px;
 }

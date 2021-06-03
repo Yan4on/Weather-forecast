@@ -3,44 +3,32 @@ const inputYourCity = document.querySelector('.weather__your-city')
 const submitYourCity = document.querySelector('.weather__submit-city')
 
 
-
 function changeYorCity() {
-     let url = "Москва";
-    
-    submitYourCity.onclick = function() {
+
+    submitYourCity.onclick = function () {
         let url = "https://api.openweathermap.org/data/2.5/weather?q=Москва,ru&units=metric&&APPID=77021688eecb9062767e4ba889643832";
         url = url.split('Москва').join(inputYourCity.value);
         axios.get(url).then(res => {
             // Вывод города
             document.querySelector('.weather__city').textContent = res.data.name
             // Вывод температуры
-            document.querySelector('.weather__temp').textContent = res.data.main.temp + "°C"
+            document.querySelector('.weather__temp').textContent = res.data.main.temp + "°"
             //Вывод "Ощущается как"
-            document.querySelector('.weather__temp-feels_like').textContent = "Ощущается как:" +" " + res.data.main.feels_like + "°C"
+            document.querySelector('.weather__temp-feels_like').textContent = "Ощущается как:" + " " + res.data.main.feels_like + "°C"
             // Вывод влажности
-            document.querySelector('.weather__humidity').textContent = "Влажность:" +" " + res.data.main.humidity + " %"
+            document.querySelector('.weather__humidity').textContent = "Влажность:" + " " + res.data.main.humidity + " %"
             // Вывод скорости ветра
-            document.querySelector('.weather__wind').textContent = "Ветер:" +" " + res.data.wind.speed + " км/ч"
+            document.querySelector('.weather__wind').textContent = "Ветер:" + " " + res.data.wind.speed + " км/ч"
             //Вывож описания погоды и облачности
             // document.querySelector('.weather__clouds').textContent = res.data.weather[0]['description']
             //взять иконку текущей погоды
             document.getElementById("weatherIconData").src = "http://openweathermap.org/img/w/" + res.data.weather[0]['icon'] + ".png";
+            // document.getElementById("weatherIconData").src = "././images/sun.png";
         })
-        console.log(url)
-        return url
     }
-    console.log(url)
-    // Отправка GET запроса
 }
 
 changeYorCity()
-
-// // Отправляем запрос
-// axios.get(url).then(res => {
-//     // Выводим результат в консоль браузера
-//     console.log(res.data);
-// })
-
 
 // Дата и время
 const infoDate = document.querySelector('.currentDate')
@@ -72,3 +60,19 @@ function formSubmitHandler(evt) {
 }
 
 form.addEventListener('submit', formSubmitHandler);
+
+// Определение геолокации
+// window.onload = function () {
+//     const location = 'https://ipapi.co/json'
+
+//     axios.get(location).then(res => {
+
+
+//         // Вывод города
+//         document.querySelector('.location__city').textContent = res.data.city
+//         console.log(res.data.city)
+//         // Вывод температуры
+//         document.querySelector('.location__country').textContent = res.data.country_name
+//         console.log(res.data.country_name)
+//     })
+// }
