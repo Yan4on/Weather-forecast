@@ -1,0 +1,59 @@
+h1,h2,h3,h4,p {
+    color: aliceblue;
+}
+
+p {
+    font-size: 18px;
+}
+
+.html__bcg {
+    background-image: url(././images/000.jpg);
+    /* background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; */
+}
+
+.main {
+    text-align: center;
+}
+
+.middle__img {
+    width: 250px;
+    height: auto;
+    animation: spin 45s linear 0s infinite;
+}
+
+.weather__temp {
+ font-size: 45px;
+}
+
+.weather__clouds {
+    margin: 0;
+}
+
+.weather__city {
+  font-size: 35px;
+}
+
+.weather__temp-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.weather__temp_cels {
+    font-size: 45px;
+    padding: 0;
+    margin: 0;
+}
+
+.currentDate {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}

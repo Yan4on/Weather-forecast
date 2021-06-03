@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="html__bcg" lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body class="content">
+    <div class="main">
+        <div class="info">
+            <h3 class="currentDate"></h3>
+        </div>
+        <div class="weather">
+            <h2><span class="weather__city"></span></h2>
+            <div class="weather__temp-wrap">
+                <p class="weather__temp_cels"><span class="weather__temp"></span>°C</p>
+                <img src="" id="weatherIconData" style="
+                width: 85px;">
+            </div>
+            <form class="form">
+                <input type="text" name="input-city" placeholder="Выберите город" class="weather__your-city">
+                <button type="submit" class="weather__submit-city">Ok </button>
+            </form>
+            <p>Ощущается как: <span class="weather__temp-feels_like"></span>°C</p>
+
+            <div class="middle__img-wrap">
+                <img class="middle__img" src="" alt="Изображение небесного тела">
+            </div>
+            <!-- <p><span class="weather__clouds"></span></p> -->
+            <p>Влажность: <span class="weather__humidity"></span>%</p>
+            <p>Ветер: <span class="weather__wind"></span> км/ч</p>
+        </div>
+
+        <!-- <div class="location">
+            <h2>Ваш город <span class="location__city"></span></h2>
+            <p>Регион: <span class="location__region"></span></p>
+        </div> -->
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
