@@ -3,39 +3,34 @@ const inputYourCity = document.querySelector('.weather__your-city')
 const submitYourCity = document.querySelector('.weather__submit-city')
 
 
-function changeYorCity() {
-    // API ключ
-    let apiKey = "77021688eecb9062767e4ba889643832";
-    // Город погода которого нужна
-    let mainUrl = 'https://api.openweathermap.org/data/2.5/weather?';
-    // let city = "Светогорск"
-    let city = "Светогорск"
-    let url = `${mainUrl}q=${city}&lang=ru&units=metric&appid=${apiKey}`;
 
-    function formSubmitHandler(evt) {
-        evt.preventDefault();
-        document.querySelector('.weather__city').textContent = inputYourCity.value;
+function changeYorCity() {
+     let url = "Москва";
+    
+    submitYourCity.onclick = function() {
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=Москва,ru&units=metric&&APPID=77021688eecb9062767e4ba889643832";
+        url = url.split('Москва').join(inputYourCity.value);
+        axios.get(url).then(res => {
+            // Вывод города
+            document.querySelector('.weather__city').textContent = res.data.name
+            // Вывод температуры
+            document.querySelector('.weather__temp').textContent = res.data.main.temp + "°C"
+            //Вывод "Ощущается как"
+            document.querySelector('.weather__temp-feels_like').textContent = "Ощущается как:" + res.data.main.feels_like
+            // Вывод влажности
+            document.querySelector('.weather__humidity').textContent = "Влажность:" +" " + res.data.main.humidity + " %"
+            // Вывод скорости ветра
+            document.querySelector('.weather__wind').textContent = "Ветер:" +" " + res.data.wind.speed + " км/ч"
+            //Вывож описания погоды и облачности
+            // document.querySelector('.weather__clouds').textContent = res.data.weather[0]['description']
+            //взять иконку текущей погоды
+            document.getElementById("weatherIconData").src = "http://openweathermap.org/img/w/" + res.data.weather[0]['icon'] + ".png";
+        })
+        console.log(url)
+        return url
     }
+    console.log(url)
     // Отправка GET запроса
-    axios.get(url).then(res => {
-        // Вывод города
-        document.querySelector('.weather__city').textContent = res.data.name
-        city = document.querySelector('.weather__city').textContent 
-        // Вывод температуры
-        document.querySelector('.weather__temp').textContent = res.data.main.temp
-        //Вывод "Ощущается как"
-        document.querySelector('.weather__temp-feels_like').textContent = res.data.main.feels_like
-        // Вывод влажности
-        document.querySelector('.weather__humidity').textContent = res.data.main.humidity
-        // Вывод скорости ветра
-        document.querySelector('.weather__wind').textContent = res.data.wind.speed
-        //Вывож описания погоды и облачности
-        // document.querySelector('.weather__clouds').textContent = res.data.weather[0]['description']
-        //взять иконку текущей погоды
-        document.getElementById("weatherIconData").src = "http://openweathermap.org/img/w/" + res.data.weather[0]['icon'] + ".png";
-    })
-    city = document.querySelector('.weather__city').textContent
-    form.addEventListener('submit', formSubmitHandler);
 }
 
 changeYorCity()
@@ -71,3 +66,9 @@ function changeDayNigth(time) {
 
 }
 changeDayNigth(infoDate2)
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+    document.querySelector('.weather__city').textContent = inputYourCity.value;
+}
+
+form.addEventListener('submit', formSubmitHandler);
